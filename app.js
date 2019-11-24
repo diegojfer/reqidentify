@@ -1,14 +1,18 @@
 var HOST = '127.0.0.1';
 var PORT = 3000;
 
-var express = require('express');
+const express = require('express')
+const random = require('random')
+
 var app = express();
+var identifier = random.float()
 
 app.use(function(req, res) {
     res.send({
         method: req.method,
         path: req.path,
-        headers: req.headers
+        headers: req.headers,
+        server: identifier
     })
 });
 
